@@ -1,9 +1,19 @@
 const { ColorMyTree } = require('./colormytree');
 
+function delay(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
+};
+
 (async () => {
 
     const client = new ColorMyTree();
 
-    console.log(await client.post('01HGJXNCJSRP6Z4FBXJA43G8PF', 'test', 'hello', false));
+    for (var i = 0; i < 100; i++) {
+
+        console.log((await client.post('', 'test', 'hello', false)).data);
+
+        await delay(110);
+
+    };
 
 })();
